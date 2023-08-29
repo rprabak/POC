@@ -23,6 +23,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "POC-FE", "POC-FE\", "{4C910
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
 		VWDPort = "53207"
+		SlnRelativePath = "POC-FE\"
 	EndProjectSection
 EndProject
 Global
