@@ -17,7 +17,7 @@ jobs:
     - name: Setup Node
       uses: actions/setup-node@v3
       with:
-        node-verion: ${{ env.NODE_VERSION }}
+        node-version: ${{ env.NODE_VERSION }}
     
     - name: npm install
       run: npm install
