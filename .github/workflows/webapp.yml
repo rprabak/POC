@@ -1,0 +1,33 @@
+on:
+  pull_request:
+    branches: [master]
+
+env: 
+  NODE_VERSION: '16'
+  AZURE_WEBAPP_NAME: 'RviWebApp'
+  AZURE_WEBAPP_PACKAGE_PATH: '.'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Repo
+      uses: actions/checkout@v3
+
+    - name: Setup Node
+      uses: actions/setup-node@v3
+      with:
+        node-verion: ${{ env.NODE_VERSION }}
+    
+    - name: npm install
+      run: npm install
+
+    - name: npm build
+      run: npm build
+
+    - name: Deploy to Azure WebApp
+      uses: azure/webapps-deploy@v2
+      with:
+        app-name: ${{AZURE_WEBAPP_NAME}}
+        publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+        package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
