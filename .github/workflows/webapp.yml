@@ -3,7 +3,7 @@ on:
     branches: [master]
 
 env: 
-  NODE_VERSION: '14.x'
+  NODE_VERSION: 16
   AZURE_WEBAPP_NAME: RviWebApp
   AZURE_WEBAPP_PACKAGE_PATH: '.'
 
