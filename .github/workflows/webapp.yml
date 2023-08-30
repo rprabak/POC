@@ -4,7 +4,7 @@ on:
 
 env: 
   NODE_VERSION: '16'
-  AZURE_WEBAPP_NAME: 'RviWebApp'
+  AZURE_WEBAPP_NAME: RviWebApp
   AZURE_WEBAPP_PACKAGE_PATH: '.'
 
 jobs:
