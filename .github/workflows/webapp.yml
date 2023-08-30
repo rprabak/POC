@@ -21,9 +21,11 @@ jobs:
     
     - name: npm install
       run: npm install
+      working-directory: ./POC-FE
 
     - name: npm build
       run: npm build
+      working-directory: ./POC-FE
 
     - name: Deploy to Azure WebApp
       uses: azure/webapps-deploy@v2
