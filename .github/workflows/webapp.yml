@@ -24,7 +24,7 @@ jobs:
       working-directory: ./POC-FE
 
     - name: npm build
-      run: npm build
+      run: npm run build
       working-directory: ./POC-FE
 
     - name: Deploy to Azure WebApp
