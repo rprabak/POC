@@ -1,0 +1,35 @@
+on:
+  push:
+    branches: [master]
+
+env: 
+  NODE_VERSION: 14
+  AZURE_WEBAPP_NAME: RviWebApp
+  AZURE_WEBAPP_PACKAGE_PATH: './POC-FE/dist'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Repo
+      uses: actions/checkout@v3
+
+    - name: Setup Node
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ env.NODE_VERSION }}
+    
+    - name: npm install
+      run: npm install
+      working-directory: ./POC-FE
+
+    - name: npm build
+      run: npm run build
+      working-directory: ./POC-FE
+
+    - name: Deploy to Azure WebApp
+      uses: azure/webapps-deploy@v2
+      with:
+        app-name: ${{ env.AZURE_WEBAPP_NAME }}
+        publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+        package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
