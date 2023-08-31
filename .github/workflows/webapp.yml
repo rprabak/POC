@@ -5,7 +5,7 @@ on:
 env: 
   NODE_VERSION: 16
   AZURE_WEBAPP_NAME: RviWebApp
-  AZURE_WEBAPP_PACKAGE_PATH: '.'
+  AZURE_WEBAPP_PACKAGE_PATH: './POC-FE/dist'
 
 jobs:
   build:
